@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <colordlg.h>
 
 // Make sure that you have the library file in the same directory as your code is executed
 #define STB_IMAGE_IMPLEMENTATION
