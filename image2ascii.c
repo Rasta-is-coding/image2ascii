@@ -37,6 +37,16 @@ char GetSymbolFromBrightness(int brightness) {
 }
 
 
+void SetColor(int r, int g, int b) {
+    printf("\033[38;2;%d;%d;%dm", r, g, b);  // Set RGB color
+}
+
+// Reset the terminal color back to default
+void ResetColor() {
+    printf("\033[0m");
+}
+
+
 void Draw() {
     int width, height, channels;
     unsigned char *image = stbi_load(path, &width, &height, &channels, 0);
@@ -64,7 +74,9 @@ void Draw() {
             // Getting corresponding symbol based on brightness
             char symbol = GetSymbolFromBrightness(scaledBrightness);
 
+            SetColor(r, g, b); // Let's add some color! ^-^
             printf("%c", symbol);
+            ResetColor(); 
         }
             printf("\n");
     }
